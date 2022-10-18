@@ -1,0 +1,21 @@
+{
+    "name": "chenvle/easy_excel",
+    "type": "library",
+    "require": {
+        "php": ">=7.0.0",
+        "phpoffice/phpspreadsheet": "^1.18"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Chenvle\\EasyExcel\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "chenvle",
+            "email": "chenvle@cmtime.cn"
+        }
+    ],
+    "minimum-stability": "dev"
+}
