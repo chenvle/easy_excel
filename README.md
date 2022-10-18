@@ -2,7 +2,7 @@
 
 1、安装
 ```
-composer require chenvle/cron
+composer require chenvle/easy_excel
 ```
 
 2、使用例子
