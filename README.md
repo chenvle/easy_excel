@@ -1,5 +1,11 @@
 简易Excel导入和导出
 
+1、安装
+```
+composer require chenvle/cron
+```
+
+2、使用例子
 ```phpt
 use Chenvle\Excel;
 
