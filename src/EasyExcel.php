@@ -7,7 +7,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 
-class Excel
+class EasyExcel
 {
     public function output($data, $title, $field, $fileType = 'Xlsx')
     {

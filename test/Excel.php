@@ -1,9 +1,9 @@
 <?php
 require_once '../vendor/autoload.php';
 
-use Chenvle\EasyExcel\Excel;
+use Chenvle\EasyExcel\EasyExcel;
 
-$excel = new Excel();
+$excel = new EasyExcel();
 
 
 /*导入*/
