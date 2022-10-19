@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 
-use Chenvle\Excel;
+use Chenvle\EasyExcel\Excel;
 
 $excel = new Excel();
 
