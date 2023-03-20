@@ -7,7 +7,7 @@ composer require chenvle/easy_excel
 
 2、使用例子
 ```phpt
-use Chenvle\Excel;
+use Chenvle\EasyExcel\EasyExcel;
 
 $excel = new Excel();
 
