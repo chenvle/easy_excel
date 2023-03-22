@@ -103,7 +103,7 @@ class EasyExcel
             $this->excelBrowserExport(time(), $fileType);
             $writer->save('php://output');
         }else{
-            $filename = $file_or_url . '/' . time() . $fileType;
+            $filename = $file_or_url . '/' . time() .'.'. $fileType;
             $writer->save($filename);
             return '/'.$filename;
         }
