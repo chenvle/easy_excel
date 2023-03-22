@@ -9,7 +9,7 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 
 class EasyExcel
 {
-    public function output($data, $title, $field, $fileType = 'Xlsx')
+    public function output($data, $title, $field, $fileType = 'Xlsx',$file_or_url = 'file')
     {
         $en       = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
         $end_en   = $en[count($field) - 1];
@@ -95,9 +95,18 @@ class EasyExcel
             $num++;
         }
 
+
+
         $writer = IOFactory::createWriter($spreadsheet, $fileType);
-        $this->excelBrowserExport(time(), $fileType);
-        $writer->save('php://output');
+
+        if($file_or_url === 'file'){
+            $this->excelBrowserExport(time(), $fileType);
+            $writer->save('php://output');
+        }else{
+            $filename = $file_or_url . '/' . time() . $fileType;
+            $writer->save($filename);
+            return '/'.$filename;
+        }
     }
 
 
