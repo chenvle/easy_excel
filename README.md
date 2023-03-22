@@ -43,5 +43,5 @@ $field  = [
 $str    = '待退款表';
 $data = [];//导出的数据
 $excel->output($data, $str, $field,'Xlsx');//输出到浏览器
-$excel->output($data, $str, $field,'Xlsx','upload');//保存到服务器返回路径
+$excel->output($data, $str, $field,'Xlsx','upload');//保存到服务器返回路径(前面不用'/'，后面也不用"/")
 ```
