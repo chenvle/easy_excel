@@ -37,3 +37,4 @@ $field  = [
 $str    = '待退款表';
 $data = [];//导出的数据
 $excel->output($data, $str, $field);//输出到浏览器
+$url = $excel->output($data, $str, $field,'Xlsx','upload');//保存到服务器

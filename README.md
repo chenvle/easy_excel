@@ -6,7 +6,7 @@ composer require chenvle/easy_excel
 ```
 
 2、使用例子
-```phpt
+```php
 use Chenvle\EasyExcel\EasyExcel;
 
 $excel = new Excel();
@@ -42,5 +42,6 @@ $field  = [
 ];
 $str    = '待退款表';
 $data = [];//导出的数据
-$excel->output($data, $str, $field);//输出到浏览器
+$excel->output($data, $str, $field,'Xlsx');//输出到浏览器
+$excel->output($data, $str, $field,'Xlsx','upload');//保存到服务器返回路径
 ```
