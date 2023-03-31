@@ -34,6 +34,11 @@ $field  = [
     'create_time' => ['value' => '下单时间', 'width' => '20', 'type' => 'string']
 ];
 $str    = '待退款表';
-$data = [];//导出的数据
-$excel->output($data, $str, $field);//输出到浏览器
-$url = $excel->output($data, $str, $field,'Xlsx','upload');//保存到服务器
+//导出的数据，如果是对象需要转换成数组，提高性能
+$data = [];
+
+//返回到浏览器，文件流形式
+$excel->output($data, $str, $field,'Xlsx');
+
+//保存到服务器返回路径(前面不用'/'，后面也不用"/")
+$excel->output($data, $str, $field,'Xlsx','upload');
