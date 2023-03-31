@@ -26,12 +26,11 @@ $field  = [
     'school_str'  => ['value' => '学校', 'width' => '15', 'type' => 'string'],
     'grade'       => ['value' => '年级', 'width' => '10', 'type' => 'string'],
     'origOrderId' => ['value' => '订单号', 'width' => '25', 'type' => 'string'],
-    'title'       => ['value' => '项目名称', 'width' => '30', 'type' => 'string', 'with' => 'orderInfo'],
-    'phone'       => ['value' => '电话', 'width' => '15'],
+    'phone'       => ['value' => '电话', 'width' => '15','type'=>'int'],
     'txnAmt'      => ['value' => '订单金额', 'width' => '15'],
     'refundAmt'   => ['value' => '退款金额', 'width' => '15'],
     'status_str'  => ['value' => '状态', 'width' => '10', 'type' => 'string'],
-    'remark'      => ['value' => '备注', 'width' => '15', 'type' => 'string'],
+    'remark'      => ['value' => '备注', 'width' => '15', 'type' => 'string','max'=>'50'],
     'create_time' => ['value' => '下单时间', 'width' => '20', 'type' => 'string']
 ];
 $str    = '待退款表';
