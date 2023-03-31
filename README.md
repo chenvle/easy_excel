@@ -62,7 +62,12 @@ $excel->output($data, $str, $field,'Xlsx','upload');//保存到服务器返回�
 ```
 /*导出field参数*/
 $field = [
-    '字段'=>['value'=>'字段命名','width'=>'宽度','type'=>'string字符串|int整型|array数组','max'=>'长度,超过截取']
+    '字段'=>[
+        'value'=>'字段命名',
+        'width'=>'宽度',
+        'type'=>'string字符串|int整型|array数组',
+        'max'=>'长度,超过截取'
+        ]
     ...
 ]
 注意：
