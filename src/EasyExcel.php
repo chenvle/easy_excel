@@ -108,6 +108,18 @@ class EasyExcel
                     $value = $res_value;
                 }
                 $sheet->setCellValue($en[$num] . ($k + 3), $value);
+
+
+                if(isset($o['color'])){
+                    $styleArrayBody = [
+                        //字体
+                        'font' => [
+                            //颜色
+                            'color' => ['rgb' => $o['color']],
+                        ]
+                    ];
+                    $sheet->getStyle($en[$num] . ($k + 3))->applyFromArray($styleArrayBody);
+                }
             }
             $num++;
         }

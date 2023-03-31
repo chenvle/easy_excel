@@ -48,7 +48,7 @@ $field  = [
     'phone'       => ['value' => '电话', 'width' => '15','type'=>'int'],
     'txnAmt'      => ['value' => '订单金额', 'width' => '15'],
     'refundAmt'   => ['value' => '退款金额', 'width' => '15'],
-    'status_str'  => ['value' => '状态', 'width' => '10', 'type' => 'string'],
+    'status_str'  => ['value' => '状态', 'width' => '10', 'type' => 'string','color'=>'ff0000'],
     'remark'      => ['value' => '备注', 'width' => '15', 'type' => 'string','max'=>'50'],
     'create_time' => ['value' => '下单时间', 'width' => '20', 'type' => 'string']
 ];
@@ -71,11 +71,12 @@ $field = [
             'value'=>'字段命名',
             'width'=>'宽度',
             'type'=>'string字符串|int整型|array数组',
-            'max'=>'长度,超过截取'
+            'max'=>'长度,超过截取',
+            'color'=>'字体颜色',
         ]
     ...
 ]
 注意：
     字段必须要存在数据中，value字段命名用于导出的命名可自定义，type类型中string会自动在后面增加空格，
-    int不做处理，array用'、'分隔，max长度用于截取长字段
+    int不做处理，array用'、'分隔，max长度用于截取长字段,color字体颜色rgb
 ```
