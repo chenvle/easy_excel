@@ -90,6 +90,9 @@ class EasyExcel
                 if (isset($o['type']) && $o['type'] == 'string') {
                     $value = $value . ' ';
                 }
+                if (isset($o['type']) && $o['type'] == 'array') {
+                    $value = implode('、',$value);
+                }
                 $sheet->setCellValue($en[$num] . ($k + 3), $value);
             }
             $num++;
