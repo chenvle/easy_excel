@@ -83,15 +83,29 @@ class EasyExcel
             foreach ($data as $k => $datum) {
                 $value = '';
                 if (isset($o['with']) && $o['with'] && isset($datum[$o['with']][$i])) {
+                    /*通过with拿数据*/
                     $value = $datum[$o['with']][$i];
                 } else if (isset($datum[$i])) {
+                    /*直接拿数据*/
                     $value = $datum[$i];
                 }
+
                 if (isset($o['type']) && $o['type'] == 'string') {
+                    /*字符串类型后面加空格*/
                     $value = $value . ' ';
                 }
                 if (isset($o['type']) && $o['type'] == 'array' && is_array($value)) {
+                    /*数组类型用'、'分隔*/
                     $value = implode('、',$value);
+                }
+                if (isset($o['max']) &&  is_numeric($o['max']) && $o['max'] > 0) {
+                    /*长数据截取*/
+                    if (mb_strlen($value) < $o['max']) {
+                        $res_value = $value;
+                    } else {
+                        $res_value = substr($value, 0, $o['max']);
+                    }
+                    $value = $res_value;
                 }
                 $sheet->setCellValue($en[$num] . ($k + 3), $value);
             }
