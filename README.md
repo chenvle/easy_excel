@@ -45,7 +45,6 @@ $field  = [
     'school_str'  => ['value' => '学校', 'width' => '15', 'type' => 'string'],
     'grade'       => ['value' => '年级', 'width' => '10', 'type' => 'string'],
     'origOrderId' => ['value' => '订单号', 'width' => '25', 'type' => 'string'],
-    'title'       => ['value' => '项目名称', 'width' => '30', 'type' => 'string', 'with' => 'orderInfo'],
     'phone'       => ['value' => '电话', 'width' => '15'],
     'txnAmt'      => ['value' => '订单金额', 'width' => '15'],
     'refundAmt'   => ['value' => '退款金额', 'width' => '15'],
