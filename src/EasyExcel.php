@@ -9,16 +9,47 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 
 class EasyExcel
 {
-    public function output($data, $title, $field, $fileType = 'Xlsx',$file_or_url = 'file')
+    public function output($data, $title, $field, $fileType = 'Xlsx',$file_or_url = 'file',$two_table = false)
     {
-        $en       = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-        $end_en   = $en[count($field) - 1];
-        $end_line = count($data) + 2;
 
         $spreadsheet = new Spreadsheet();
 
+
+
         //获取当前表
-        $sheet = $spreadsheet->getActiveSheet();
+        $sheet = $spreadsheet->setActiveSheetIndex(0);
+
+        $this->write_excel($sheet,$data, $title, $field);
+
+        if($two_table && isset($two_table['data']) && isset($two_table['title']) && isset($two_table['field']) ){
+
+            //获取当前表
+            $sheet = $spreadsheet->setActiveSheetIndex(1);
+            $this->write_excel($sheet,$two_table['data'], $two_table['title'], $two_table['field']);
+        }
+
+
+
+
+
+
+
+        $writer = IOFactory::createWriter($spreadsheet, $fileType);
+
+        if($file_or_url === 'file'){
+            $this->excelBrowserExport(time(), $fileType);
+            $writer->save('php://output');
+        }else{
+            $filename = $file_or_url . '/' . time() .'.'. $fileType;
+            $writer->save($filename);
+            return '/'.$filename;
+        }
+    }
+
+    protected function write_excel($sheet,$data,$title,$field){
+        $en       = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        $end_en   = $en[count($field) - 1];
+        $end_line = count($data) + 2;
 
         //表名称
         $sheet->setTitle($title);
@@ -122,19 +153,6 @@ class EasyExcel
                 }
             }
             $num++;
-        }
-
-
-
-        $writer = IOFactory::createWriter($spreadsheet, $fileType);
-
-        if($file_or_url === 'file'){
-            $this->excelBrowserExport(time(), $fileType);
-            $writer->save('php://output');
-        }else{
-            $filename = $file_or_url . '/' . time() .'.'. $fileType;
-            $writer->save($filename);
-            return '/'.$filename;
         }
     }
 
