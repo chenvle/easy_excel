@@ -17,12 +17,13 @@ class EasyExcel
 
 
         //获取当前表
-        $sheet = $spreadsheet->setActiveSheetIndex(0);
+        $sheet = $spreadsheet->getActiveSheet();
 
         $this->write_excel($sheet,$data, $title, $field);
 
         if($two_table && isset($two_table['data']) && isset($two_table['title']) && isset($two_table['field']) ){
 
+            $spreadsheet->createSheet();
             //获取当前表
             $sheet = $spreadsheet->setActiveSheetIndex(1);
             $this->write_excel($sheet,$two_table['data'], $two_table['title'], $two_table['field']);
