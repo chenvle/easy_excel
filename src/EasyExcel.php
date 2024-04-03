@@ -167,7 +167,7 @@ class EasyExcel
      * @throws \PhpOffice\PhpSpreadsheet\Calculation\Exception
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      */
-    public function input($excelPath, $param, $startRow)
+    public function input($excelPath, $param, $startRow,$del_file = true)
     {
         $excelObj = IOFactory::load($excelPath);
         if (!$excelObj) {
@@ -197,7 +197,9 @@ class EasyExcel
             }
             $excelData[] = $rowData;
         }
-        unlink($excelPath);
+        if($del_file){
+            unlink($excelPath);
+        }
         return $this->success($excelData);
     }
 
